@@ -7,6 +7,16 @@ describe('empty spec', () => {
     cy.get('#email').type("giselle@gmail.com")
 
   })
+
+    it('has 8 to 10 characters',() => {
+      var password = '12345678'
+      var chara=Array.from(password)
+      cy.log(chara)
+   
+      
+      cy.get('#pass').type(password)
+      expect(chara).to.have.length.least(8)
+    })
   
   it('contains at least one special char',() => {
    
@@ -17,13 +27,6 @@ describe('empty spec', () => {
     
   })
   
-  //fix
-  it('has 8 to 10 characters',() => {
-    cy.get('#pass').type(12345678)
-    cy.get('#pass').invoke('text')
-    .then((text) => {
-      expect(text.length).to.be.at.least(8)
-    })
-  })
+
 
 })
