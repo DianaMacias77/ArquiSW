@@ -8,11 +8,10 @@ describe('empty spec', () => {
 
   })
 
-    it('has 8 to 10 characters',() => {
-      var password = '12345678'
+    it('has at least 8 characters',() => {
+      var password = '12345678911'
       var chara=Array.from(password)
       cy.log(chara)
-   
       
       cy.get('#pass').type(password)
       expect(chara).to.have.length.least(8)
