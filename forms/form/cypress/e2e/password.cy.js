@@ -1,6 +1,7 @@
 //Giselle
-describe('empty spec', () => {
+describe('password testing', () => {
   beforeEach(() => {
+    cy.exec("npm start")
     cy.visit('http://localhost:3000')
     cy.get('#nombre').type('giselle')
     cy.get('#edad').type('15')
@@ -16,20 +17,23 @@ describe('empty spec', () => {
     cy.get('#pass').type(password)
     expect(chara).to.have.length.least(8)
   })
+
   it('does not have at least 8 characters',() => {
     var password = 'abc123'
     var chara=Array.from(password)
     
     cy.get('#pass').type(password)
-    expect(chara).to.have.length.least(8)
+    expect(chara).to.not.have.length.least(8)
   })
   
+  //fix
   it('contains at least one special char',() => {
-    var password = 'abc123'
+    var password = 'abc123@'
     var chara=Array.from(password)
     cy.get('#pass').type(password)
     cy.log("allowed special characters: @ | . | _ | - | * | ' | / ")
-    expect(chara).contains(/^(@ | . | _ | - | * | ' | )$/)
+    var allowed = ["@",".", "_", "-", "*", "'", "/"]
+    expect(allowed).to.include.members(chara)
 
   })
 
