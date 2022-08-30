@@ -8,17 +8,28 @@ describe('empty spec', () => {
 
   })
 
-    it('has at least 8 characters',() => {
-      var password = '12345678911'
-      var chara=Array.from(password)
-      cy.log(chara)
-      
-      cy.get('#pass').type(password)
-      expect(chara).to.have.length.least(8)
-    })
+  it('has at least 8 characters',() => {
+    var password = '12345678911'
+    var chara=Array.from(password)
+    cy.log(chara)
+    
+    cy.get('#pass').type(password)
+    expect(chara).to.have.length.least(8)
+  })
+  it('does not have at least 8 characters',() => {
+    var password = 'abc123'
+    var chara=Array.from(password)
+    
+    cy.get('#pass').type(password)
+    expect(chara).to.have.length.least(8)
+  })
   
   it('contains at least one special char',() => {
-   
+    var password = 'abc123'
+    var chara=Array.from(password)
+    cy.get('#pass').type(password)
+    cy.log("allowed special characters: @ | . | _ | - | * | ' | / ")
+    expect(chara).contains(/^(@ | . | _ | - | * | ' | )$/)
 
   })
 
