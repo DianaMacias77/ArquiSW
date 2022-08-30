@@ -60,34 +60,34 @@ function App() {
         function will be called .*/}
     <h2> Formulario</h2>
     <h3> Registro</h3>
-        <label >
-          Nombre:
+        <label>
+          Nombre
         </label><br/>
-        <input type="text" value={name} required onChange={(e)=> {handleChange(e)}} /><br/>
+        <input type="text" id='nombre' value={name} required onChange={(e)=> {handleChange(e)}} /><br/>
           { /*when user write in name input box , handleChange()
               function will be called. */}
-        <label >
-          Edad:
+        <label>
+          Edad
         </label><br/>
-        <input type="text" value={age} required onChange={(e)=> {handleAgeChange(e)}} /><br/>
+        <input type="text" id='edad' value={age} required onChange={(e)=> {handleAgeChange(e)}} /><br/>
             { /*when user write in age input box , handleAgeChange()
                function will be called. */}
         <label>
           Email:
         </label><br/>
-        <input type="email" value={email} required onChange={(e)=> {handleEmailChange(e)}} /><br/>
+        <input type="email" id='email' value={email} required onChange={(e)=> {handleEmailChange(e)}} /><br/>
           {/* when user write in email input box , handleEmailChange()
               function will be called.*/}
         <label>
           Contraseña:
         </label><br/>
-        <input type="password" value={password} required onChange={(e)=> {handlePasswordChange(e)}} /><br/>
+        <input type="password" id='pass' value={password} required onChange={(e)=> {handlePasswordChange(e)}} /><br/>
               {/* when user write in password input box ,
                   handlePasswordChange() function will be called.*/}
         <label>
           Confirma la contraseña:
         </label><br/>
-        <input type="password" value={confPassword} required onChange={(e)=> {handleConfPasswordChange(e)}} /><br/>
+        <input type="password" id='repass' value={confPassword} required onChange={(e)=> {handleConfPasswordChange(e)}} /><br/>
                 {/* when user write in confirm password  input box ,
                     handleConfPasswordChange() function will be called.*/}
         <input className="Button" type="submit" value="Registrate"/>
