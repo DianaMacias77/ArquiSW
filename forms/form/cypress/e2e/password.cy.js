@@ -9,7 +9,7 @@ describe('password testing', () => {
 
   })
 
-  it('has at least 8 characters',() => {
+  it.skip('has at least 8 characters',() => {
     var password = '12345678911'
     var chara=Array.from(password)
     cy.log(chara)
@@ -18,7 +18,7 @@ describe('password testing', () => {
     expect(chara).to.have.length.least(8)
   })
 
-  it('does not have at least 8 characters',() => {
+  it.skip('does not have at least 8 characters',() => {
     var password = 'abc123'
     var chara=Array.from(password)
     
@@ -27,6 +27,7 @@ describe('password testing', () => {
   })
   
   //fix
+  /*
   it('contains at least one special char',() => {
     var password = 'abc123@'
     var chara=Array.from(password)
@@ -39,8 +40,26 @@ describe('password testing', () => {
 
   it('does not contain at least one special char',() => {
     
+  })*/
+  
+  it('password matches the confirm password',() => {
+    var password = 'abc123@'
+    var repass = 'abc123@'
+  
+    cy.get('#pass').type(password)
+    cy.get("#repass").type(repass)
+
+    cy.get('#pass').invoke('val').should('equal',repass)
   })
   
+  it('password does not match the confirm password',() => {
+    var password = 'abc123@'
+    var repass = 'abc123'
+  
+    cy.get('#pass').type(password)
+    cy.get("#repass").type(repass)
 
+    cy.get('#pass').invoke('val').should('not.equal',repass)
+  })
 
 })
