@@ -27,22 +27,25 @@ describe('password testing', () => {
   })
   
   //fix
-  /*
-  it('contains at least one special char',() => {
+  
+  it.skip('contains at least one special char',() => {
     var password = 'abc123@'
-    var chara=Array.from(password)
     cy.get('#pass').type(password)
-    cy.log("allowed special characters: @ | . | _ | - | * | ' | / ")
-    var allowed = ["@",".", "_", "-", "*", "'", "/"]
-    expect(allowed).to.include.members(chara)
+    const regex = /[\!\@\#\$\%\^\&\*\)\(\+\=\.\<\>\{\}\[\]\:\;\'\"\|\~\`\_\-]/g
+
+    cy.get('#pass').invoke('val').should('match',regex)
 
   })
 
-  it('does not contain at least one special char',() => {
-    
-  })*/
+  // it('does not contain at least one special char',() => {
+  //   var password = 'abc123@@'
+  //   cy.get('#pass').type(password)
+  //   const regex =  /[\!\@\#\$\%\^\&\*\)\(\+\=\.\<\>\{\}\[\]\:\;\'\"\|\~\`\_\-]/g
+  //   expect('#pass').invoke('val').to.not('match',regex)
+  //   //cy.get('#pass').invoke('val').should(('match',regex))
+  // })
   
-  it('password matches the confirm password',() => {
+  it.skip('password matches the confirm password',() => {
     var password = 'abc123@'
     var repass = 'abc123@'
   
@@ -52,7 +55,7 @@ describe('password testing', () => {
     cy.get('#pass').invoke('val').should('equal',repass)
   })
   
-  it('password does not match the confirm password',() => {
+  it.skip('password does not match the confirm password',() => {
     var password = 'abc123@'
     var repass = 'abc123'
   
