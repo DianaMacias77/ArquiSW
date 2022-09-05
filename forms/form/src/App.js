@@ -63,7 +63,7 @@ function App() {
         <label>
           Nombre
         </label><br/>
-        <input type="text" id='nombre' value={name} required onChange={(e)=> {handleChange(e)}} /><br/>
+        <input type="text" id='nombre' maxlength='25' pattern='[A-Za-z]{1,15}' value={name} required onChange={(e)=> {handleChange(e)}} /><br/>
           { /*when user write in name input box , handleChange()
               function will be called. */}
         <label>
